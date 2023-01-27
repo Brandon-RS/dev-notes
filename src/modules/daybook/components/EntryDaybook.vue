@@ -1,3 +1,15 @@
+<script lang="ts" setup>
+import { EntryType } from '@/types'
+import { computed } from 'vue'
+
+const props = defineProps<{
+  entry: EntryType
+}>()
+
+const entry = computed(() => props.entry)
+
+</script>
+
 <template>
   <div
     class="entry-container mb-3 pointer p-2"
@@ -9,16 +21,10 @@
     </div>
 
     <div class="entry-description">
-      Commodo amet cupidatat dolor id duis. Do excepteur dolore enim do adipisicing eu cupidatat
-      consectetur proident laborum irure est esse. Cupidatat labore dolor amet nostrud pariatur qui
-      nostrud ad consequat.
+      {{ entry.text }}
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-
-</script>
 
 <style lang="scss" scoped>
 .entry-container {

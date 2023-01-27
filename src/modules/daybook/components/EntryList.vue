@@ -1,23 +1,33 @@
+<script lang="ts" setup>
+import { defineAsyncComponent, computed, ref } from 'vue'
+import { useStore } from 'vuex'
+
+const Entry = defineAsyncComponent(() => import('@/modules/daybook/components/EntryDaybook.vue'))
+const store = useStore()
+const getEntriesByTerm = store.getters['journal/getEntriesByTerm']
+const entriesByTerm = computed(() => getEntriesByTerm(text.value))
+// const entriesByTerm = computed(() => store.getters['journal/getEntriesByTerm'](text.value))
+
+const text = ref<string>('')
+
+
+</script>
+  
 <template>
   <div class="entry-list-container">
     <div class="px-2 pt-2">
       <input
         type="text"
         class="form-control"
+        v-model="text"
         placeholder="Search entry">
     </div>
 
     <div class="entry-scroll-area">
-      <Entry v-for="item in 10" :key="item" />
+      <Entry v-for="entry in entriesByTerm" :key="entry.id" :entry="entry" />
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { defineAsyncComponent } from 'vue'
-
-const Entry = defineAsyncComponent(() => import('@/modules/daybook/components/EntryDaybook.vue'))
-</script>
 
 <style lang="scss" scoped>
 .entry-list-container {
