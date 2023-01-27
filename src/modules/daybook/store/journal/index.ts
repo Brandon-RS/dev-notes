@@ -5,10 +5,10 @@ import * as getters from './getters'
 
 const journalModule = {
   namespaced: true,
+  state,
   // actions,
   getters,
   // mutations,
-  state
 }
 
 export default journalModule

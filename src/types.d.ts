@@ -4,3 +4,8 @@ export interface EntryType {
   text: string,
   picture: string,
 }
+
+export interface JournalType {
+  isLoading: true,
+  entries: EntryType[]
+}

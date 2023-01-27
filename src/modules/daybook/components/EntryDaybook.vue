@@ -1,27 +1,34 @@
 <script lang="ts" setup>
 import { EntryType } from '@/types'
 import { computed } from 'vue'
+import { getEntryDate } from '@/helpers/dates'
 
 const props = defineProps<{
   entry: EntryType
 }>()
 
-const entry = computed(() => props.entry)
+const shortText = computed(() => {
+  return (props.entry.text.length > 150)
+    ? props.entry.text.substring(0, 150) + '...'
+    : props.entry.text
+})
+
+const entryDate = computed(() => getEntryDate(props.entry.date))
 
 </script>
 
 <template>
   <div
     class="entry-container mb-3 pointer p-2"
-    @click="$router.push({ name: 'entry', params: { id: '12' } })">
+    @click="$router.push({ name: 'entry', params: { id: props.entry.id } })">
     <div class="entry-title d-flex">
-      <span class="text-success fs-5 fw-bold">15</span>
-      <span class="mx-1 fs-5">July</span>
-      <span class="mx-2 fw-light">2023, Sunday</span>
+      <span class="text-success fs-5 fw-bold">{{ entryDate.day }}</span>
+      <span class="mx-1 fs-5">{{ entryDate.month }}</span>
+      <span class="mx-2 fw-light">{{ entryDate.yearDay }}</span>
     </div>
 
     <div class="entry-description">
-      {{ entry.text }}
+      {{ shortText }}
     </div>
   </div>
 </template>
