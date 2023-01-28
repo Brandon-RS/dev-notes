@@ -1,5 +1,7 @@
 <template>
-  <button class=" btn-fab btn btn-primary">
+  <button 
+  @click="$emit('on:click')"
+  class=" btn-fab btn btn-primary">
     <i
       class="fa-solid fa-2x"
       :class="'fa-' + props.icon">

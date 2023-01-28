@@ -5,15 +5,14 @@ import { EntryType } from '@/types'
 
 const Entry = defineAsyncComponent(() => import('@/modules/daybook/components/EntryDaybook.vue'))
 const store = useStore()
-const getEntriesByTerm = store.getters['journal/getEntriesByTerm']
-const entriesByTerm = computed<EntryType[]>(() => getEntriesByTerm(text.value))
-// const entriesByTerm = computed(() => store.getters['journal/getEntriesByTerm'](text.value))
-
 const text = ref<string>('')
 
+const entriesByTerm = computed<EntryType[]>(
+  () => store.getters['journal/getEntriesByTerm'](text.value)
+)
 
 </script>
-  
+
 <template>
   <div class="entry-list-container">
     <div class="px-2 pt-2">

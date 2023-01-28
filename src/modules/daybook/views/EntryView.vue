@@ -3,14 +3,14 @@ import { defineAsyncComponent, ref, computed, watch } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import { getEntryDate } from '@/helpers/dates'
-import { EntryType, JournalType } from '@/types'
+import { EntryType } from '@/types'
 import { blankEntry } from '@/helpers/generics'
 
 const Fab = defineAsyncComponent(() => import('@/modules/daybook/components/FabDaybook.vue'))
 
 const props = defineProps<{ id: string }>()
 const router = useRouter()
-const store = useStore<JournalType>()
+const store = useStore()
 const entry = ref<EntryType>(blankEntry)
 
 const loadEntry = () => {
@@ -23,6 +23,10 @@ loadEntry()
 const entryDate = computed(() => getEntryDate(entry.value.date))
 
 watch(computed(() => props.id), () => { loadEntry() })
+
+const saveEntry = async () => {
+  console.log('Saving entry')
+}
 
 </script>
 
@@ -63,7 +67,8 @@ watch(computed(() => props.id), () => { loadEntry() })
   </template>
 
   <Fab
-    icon="save" />
+    icon="save"
+    @on:click="saveEntry" />
 </template>
 
 <style lang="scss" scoped>

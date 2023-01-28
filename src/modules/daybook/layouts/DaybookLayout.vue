@@ -1,7 +1,33 @@
+<script lang="ts" setup>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+import NavbarDaybook from '@/modules/daybook/components/NavbarDaybook.vue'
+import EntryList from '@/modules/daybook/components/EntryList.vue'
+
+const store = useStore()
+
+store.dispatch('journal/loadEntries')
+const isLoading = computed(() => store.state.journal.isLoading)
+
+</script>
+
 <template>
   <NavbarDaybook />
 
-  <div class="d-flex">
+  <div
+    v-if="isLoading"
+    class="row justify-content-md-center">
+    <div class="col-3 alert-info text-center mt-5">
+      Please, wait ...
+      <h3 class="mt-2">
+        <i class="fa-solid fa-spin fa-sync"></i>
+      </h3>
+    </div>
+  </div>
+
+  <div
+    v-else
+    class="d-flex">
     <div class="col-4">
       <EntryList />
     </div>
@@ -10,12 +36,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-import NavbarDaybook from '@/modules/daybook/components/NavbarDaybook.vue'
-import EntryList from '@/modules/daybook/components/EntryList.vue'
-
-</script>
 
 <style lang="scss" scoped>
 

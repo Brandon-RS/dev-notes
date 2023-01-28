@@ -2,10 +2,10 @@ export interface EntryType {
   id: string,
   date: string,
   text: string,
-  picture: string,
+  picture?: string,
 }
 
 export interface JournalType {
-  isLoading: true,
+  isLoading: boolean,
   entries: EntryType[]
 }
