@@ -2,7 +2,7 @@ import { EntryType } from '@/types'
 
 export const blankEntry: EntryType = {
   id: '',
-  date: '',
+  date: new Date().getTime(),
   text: '',
   picture: '',
 }

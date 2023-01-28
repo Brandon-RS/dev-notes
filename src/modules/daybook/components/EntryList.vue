@@ -23,6 +23,14 @@ const entriesByTerm = computed<EntryType[]>(
         placeholder="Search entry">
     </div>
 
+    <div class="mt-2 d-flex flex-column">
+      <button
+        @click="$router.push({ name: 'entry', params: { id: 'new-entry' } })"
+        class="btn btn-primary mx-2">
+        New Entry
+      </button>
+    </div>
+
     <div class="entry-scroll-area">
       <Entry v-for="entry in entriesByTerm" :key="entry.id" :entry="entry" />
     </div>

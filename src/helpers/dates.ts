@@ -23,7 +23,7 @@ export const days = [
   'Saturday'
 ]
 
-export const getEntryDate = (dateString: string) => {
+export const getEntryDate = (dateString: string | number) => {
   const date = new Date(dateString)
   return {
     day: date.getDate(),

@@ -3,20 +3,22 @@ import { defineAsyncComponent, ref, computed, watch } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import { getEntryDate } from '@/helpers/dates'
-import { EntryType } from '@/types'
+import { EntryType, State } from '@/types'
 import { blankEntry } from '@/helpers/generics'
 
 const Fab = defineAsyncComponent(() => import('@/modules/daybook/components/FabDaybook.vue'))
 
 const props = defineProps<{ id: string }>()
 const router = useRouter()
-const store = useStore()
+const store = useStore<State>()
 const entry = ref<EntryType>(blankEntry)
 
 const loadEntry = () => {
-  const item = store.getters['journal/getEntryByID'](props.id)
-  if (!item) return router.push({ name: 'no-entry' })
-  entry.value = item
+  if (props.id !== 'new-entry') {
+    const item = store.getters['journal/getEntryByID'](props.id)
+    if (!item) return router.push({ name: 'no-entry' })
+    entry.value = item
+  }
 }
 
 loadEntry()
@@ -25,7 +27,12 @@ const entryDate = computed(() => getEntryDate(entry.value.date))
 watch(computed(() => props.id), () => { loadEntry() })
 
 const saveEntry = async () => {
-  console.log('Saving entry')
+  if (entry.value.id) {
+    store.dispatch('journal/updateEntry', entry.value)
+  } else {
+    const id = await store.dispatch('journal/createEntry', entry.value)
+    router.push({ name: 'entry', params: { id } })
+  }
 }
 
 </script>
@@ -56,7 +63,7 @@ const saveEntry = async () => {
     <div class="d-flex flex-column px-3 h-75">
       <textarea
         autofocus
-        :value="entry.text"
+        v-model="entry.text"
         placeholder="What happen today?"></textarea>
     </div>
 

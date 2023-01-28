@@ -1,6 +1,6 @@
 export interface EntryType {
   id: string,
-  date: string,
+  date: string | number,
   text: string,
   picture?: string,
 }
