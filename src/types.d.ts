@@ -5,7 +5,11 @@ export interface EntryType {
   picture?: string,
 }
 
-export interface JournalType {
+export interface JournalState {
   isLoading: boolean,
   entries: EntryType[]
+}
+
+export interface State {
+  journal: JournalState
 }

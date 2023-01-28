@@ -1,6 +1,6 @@
-import { JournalType } from '@/types'
+import { JournalState } from '@/types'
 
-export default (): JournalType => ({
+export default (): JournalState => ({
   isLoading: true,
   entries: []
 })

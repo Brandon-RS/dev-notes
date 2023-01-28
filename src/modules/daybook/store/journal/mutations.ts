@@ -1,6 +1,6 @@
-import { JournalType, EntryType } from '@/types'
+import { JournalState, EntryType } from '@/types'
 
-export const setEntries = (state: JournalType, entries: EntryType[]) => {
+export const setEntries = (state: JournalState, entries: EntryType[]) => {
   state.entries = [...state.entries, ...entries]
   state.isLoading = false
 }
