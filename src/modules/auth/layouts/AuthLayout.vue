@@ -3,8 +3,8 @@
 
 <template>
   <div class="limiter">
-    <div class="container-login100" style="background-image: url('./assets/bg-01.jpg');">
-      <div class="wrap-login100 p-t-30 p-b-50">
+    <div class="main-container" >
+      <div class="auth-container">
         <RouterView />
       </div>
     </div>
@@ -12,6 +12,5 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../css/auth.css';
-@import '../css/util.css';
+@import '../css/form.scss';
 </style>

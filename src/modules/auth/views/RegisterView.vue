@@ -1,40 +1,70 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { UserType } from '../auth'
+import { useAuth } from '../composables/useAuth'
+
+const { createUser } = useAuth()
+
+const userForm = ref<UserType>({
+  name: '',
+  email: '',
+  password: '',
+})
+
+const onSubmit = () => {
+  createUser(userForm.value)
+}
+
 </script>
 
 <template>
-  <span class="login100-form-title p-b-41">
-    Register
+  <span class="form-greet">
+    Hey, Hello
+    <i class="fa-solid fa-hand-peace"></i>
+    <span>Complete the fields bellow ...</span>
   </span>
-  <form class="login100-form validate-form p-b-33 p-t-5">
+  <form class="form-container" @submit.prevent="onSubmit">
 
-    <div class="wrap-input100 validate-input" data-validate="Enter name">
-      <input class="input100" type="text" placeholder="Name" required>
-      <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+    <div class="form-field">
+      <i class="fa-solid fa-user"></i>
+      <input type="text"
+        v-model="userForm.name"
+        class="form-input"
+        placeholder="Name" required>
     </div>
 
-    <div class="wrap-input100 validate-input" data-validate="Enter email">
-      <input class="input100" type="text" placeholder="Email" required>
-      <span class="focus-input100" data-placeholder="&#xe818;"></span>
+    <div class="form-field">
+      <i class="fa-solid fa-at"></i>
+      <input type="email"
+        v-model="userForm.email"
+        class="form-input"
+        placeholder="Email" required>
     </div>
 
-    <div class="wrap-input100 validate-input" data-validate="Enter password">
-      <input class="input100" type="password" placeholder="Password" required>
-      <span class="focus-input100" data-placeholder="&#xe80f;"></span>
+    <div class="form-field">
+      <i class="fa-solid fa-lock"></i>
+      <input type="password"
+        v-model="userForm.password"
+        class="form-input"
+        placeholder="Password"
+        required>
     </div>
 
-    <div class="container-login100-form-btn m-t-32">
-      <button class="login100-form-btn">
+    <div class="form-button">
+      <button type="submit" class="form-submit">
         Sing up
       </button>
 
     </div>
 
-    <div class="container-login100-form-btn m-t-32">
-      <router-link :to="{ name: 'login' }">Do you have already an account?</router-link>
+    <div class="form-link">
+      <router-link :to="{ name: 'login' }">
+        Do you have already an account?
+      </router-link>
     </div>
   </form>
 </template>
 
-<style scoped>
-
+<style lang="scss" scoped>
+@import '../css/form.scss';
 </style>

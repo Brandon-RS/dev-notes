@@ -2,34 +2,42 @@
 </script>
 
 <template>
-  <span class="login100-form-title p-b-41">
-    Log in
+  <span class="form-greet">
+    Hey, Hello
+    <i class="fa-solid fa-hand-peace"></i>
+    <span>Enter the information you entered when registered ...</span>
   </span>
-  <form class="login100-form validate-form p-b-33 p-t-5">
+  <form class="form-container">
 
-    <div class="wrap-input100 validate-input" data-validate="Enter username">
-      <input class="input100" type="text" placeholder="Email" required>
-      <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+    <div class="form-field">
+      <i class="fa-solid fa-at"></i>
+      <input type="text"
+        class="form-input"
+        placeholder="Email"
+        required>
     </div>
 
-    <div class="wrap-input100 validate-input" data-validate="Enter password">
-      <input class="input100" type="password" placeholder="Password" required>
-      <span class="focus-input100" data-placeholder="&#xe80f;"></span>
+    <div class="form-field">
+      <i class="fa-solid fa-lock"></i>
+      <input type="password"
+        class="form-input"
+        placeholder="Password"
+        required>
     </div>
 
-    <div class="container-login100-form-btn m-t-32">
-      <button class="login100-form-btn">
+    <div class="form-button">
+      <button class="form-submit">
         Login
       </button>
 
     </div>
 
-    <div class="container-login100-form-btn m-t-32">
-      <router-link :to="{name: 'register'}">Don't have an account?</router-link>
+    <div class="form-link">
+      <router-link :to="{ name: 'register' }">Don't have an account?</router-link>
     </div>
   </form>
 </template>
 
-<style scoped>
-
+<style lang="scss" scoped>
+@import '../css/form.scss';
 </style>
