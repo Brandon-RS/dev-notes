@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import daybookRouter from '@/modules/daybook/router'
+import authRouter from '@/modules/auth/router'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -11,6 +12,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/daybook',
     ...daybookRouter,
+  },
+  {
+    path: '/auth',
+    ...authRouter,
   }
   ,
   {

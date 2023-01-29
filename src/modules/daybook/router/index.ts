@@ -1,4 +1,5 @@
-import { RouteLocationNormalized } from 'vue-router';
+import { RouteLocationNormalized } from 'vue-router'
+
 export default {
   name: 'daybook',
   component: () => import(/* webpackChunkName: "daybook" */ '@/modules/daybook/layouts/DaybookLayout.vue'),
