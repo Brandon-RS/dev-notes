@@ -13,3 +13,8 @@ export const updateEntry = (state: JournalState, entry: EntryType) => {
 export const addEntry = (state: JournalState, entry: EntryType) => {
   state.entries.unshift(entry)
 }
+
+export const removeEntry = (state: JournalState, id: string) => {
+  const idx = state.entries.map(e => e.id).indexOf(id)
+  state.entries.splice(idx, 1)
+}

@@ -44,7 +44,7 @@ const entriesByTerm = computed<EntryType[]>(
 }
 
 .entry-scroll-area {
-  height: calc(100vh - 108px);
+  height: calc(100vh - 154px);
   overflow-y: scroll;
   overflow-x: hidden;
 }
