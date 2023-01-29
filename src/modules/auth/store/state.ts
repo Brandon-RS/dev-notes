@@ -1,11 +1,8 @@
-enum statusEnum {
-  authenticating = 'authenticating',
-  authenticated = 'authenticated',
-  not_authenticated = 'not_authenticated',
-}
+import { AuthState } from '@/types'
+import { statusEnum } from '@/helpers/generics'
 
-export default () => ({
-  status: statusEnum.authenticated,
+export default (): AuthState => ({
+  status: statusEnum.authenticating,
   user: null,
   idToken: null,
   refreshToken: null,

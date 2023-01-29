@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
+import { useAuth } from '@/modules/auth/composables/useAuth'
+
+const router = useRouter()
+const { username, logout } = useAuth()
+
+const onLogout = () => {
+  router.push({ name: 'login' })
+  logout()
+}
+
+</script>
+
 <template>
   <nav class="navbar bg-primary">
     <a class="navbar-brand text-white">
@@ -6,19 +20,17 @@
         alt="brand logo"
         height="35"
         class="d-inline-block align-text-center mx-2">
-      Daybook
+      {{ username }}
     </a>
     <div class="d-flex">
-      <button class="btn btn-outline-info mx-2">
+      <button
+        @click="onLogout"
+        class="btn btn-outline-info mx-2">
         <i class="fa-solid fa-sign-out-alt"></i>
       </button>
     </div>
   </nav>
 </template>
-
-<script lang="ts" setup>
-
-</script>
 
 <style lang="scss" scoped>
 

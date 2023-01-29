@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import daybookRouter from '@/modules/daybook/router'
 import authRouter from '@/modules/auth/router'
+import { isAuthenticatedGuard } from '../modules/auth/router/authGuard'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -11,6 +12,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/daybook',
+    beforeEnter: [isAuthenticatedGuard],
     ...daybookRouter,
   },
   {

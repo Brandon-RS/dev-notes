@@ -6,3 +6,9 @@ export const blankEntry: EntryType = {
   text: '',
   picture: '',
 }
+
+export enum statusEnum {
+  authenticating = 'authenticating',
+  authenticated = 'authenticated',
+  not_authenticated = 'not_authenticated',
+}

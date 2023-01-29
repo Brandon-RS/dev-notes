@@ -6,7 +6,9 @@ import EntryList from '@/modules/daybook/components/EntryList.vue'
 
 const store = useStore()
 
-store.dispatch('journal/loadEntries')
+if (store.state.journal.entries.length === 0) {
+  store.dispatch('journal/loadEntries')
+}
 const isLoading = computed(() => store.state.journal.isLoading)
 
 </script>

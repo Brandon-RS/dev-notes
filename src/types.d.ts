@@ -1,3 +1,4 @@
+import { UserType } from './modules/auth/auth'
 export interface EntryType {
   id: string,
   date: string | number,
@@ -10,6 +11,14 @@ export interface JournalState {
   entries: EntryType[]
 }
 
+export interface AuthState {
+  status: enum,
+  user: UserType | null,
+  idToken: string | null,
+  refreshToken: string | null,
+}
+
 export interface State {
-  journal: JournalState
+  journal: JournalState,
+  auth: AuthState,
 }
