@@ -1,6 +1,6 @@
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-import { UserType } from '../auth'
+import type { UserType } from '../auth'
 
 export const useAuth = () => {
 

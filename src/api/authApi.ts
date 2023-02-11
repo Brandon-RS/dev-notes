@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const apiKey = process.env.VUE_APP_apiKey
+const apiKey = import.meta.env.VITE_API_KEY
 
 const authApi = axios.create({
   baseURL: 'https://identitytoolkit.googleapis.com/v1/accounts',

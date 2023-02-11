@@ -1,6 +1,6 @@
 import journalApi from '@/api/journal.api'
-import { Commit } from 'vuex'
-import { EntryType } from '@/types'
+import type { Commit } from 'vuex'
+import type { EntryType } from '@/types'
 
 export const loadEntries = async ({ commit }: { commit: Commit }) => {
   const { data } = await journalApi.get('/entries.json')

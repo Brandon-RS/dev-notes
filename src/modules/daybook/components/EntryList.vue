@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { defineAsyncComponent, computed, ref } from 'vue'
 import { useStore } from 'vuex'
-import { EntryType, State } from '@/types'
+import type { EntryType, State } from '@/types'
 
 const Entry = defineAsyncComponent(() => import('@/modules/daybook/components/EntryDaybook.vue'))
 const store = useStore<State>()

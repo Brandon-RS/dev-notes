@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { UserType } from '../auth'
+import type { UserType } from '../auth'
 import { useAuth } from '../composables/useAuth'
 import Swal from 'sweetalert2'
 

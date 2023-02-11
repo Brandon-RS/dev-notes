@@ -1,4 +1,4 @@
-import { AuthState } from '@/types'
+import type { AuthState } from '@/types'
 import { statusEnum } from '@/helpers/generics'
 
 export default (): AuthState => ({

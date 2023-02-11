@@ -1,5 +1,5 @@
-import { AuthState } from '@/types'
-import { UserType } from '../auth'
+import type { AuthState } from '@/types'
+import type { UserType } from '../auth'
 import { statusEnum } from '@/helpers/generics'
 
 interface paramType {

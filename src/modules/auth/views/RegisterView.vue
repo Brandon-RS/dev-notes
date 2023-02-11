@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import Swal from 'sweetalert2'
-import { UserType } from '../auth'
+import type { UserType } from '../auth'
 import { useAuth } from '../composables/useAuth'
 
 const { createUser } = useAuth()

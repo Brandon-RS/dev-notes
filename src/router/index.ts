@@ -1,4 +1,5 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import daybookRouter from '@/modules/daybook/router'
 import authRouter from '@/modules/auth/router'
@@ -28,7 +29,7 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes
 })
 

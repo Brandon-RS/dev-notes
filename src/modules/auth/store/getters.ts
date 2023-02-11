@@ -1,4 +1,4 @@
-import { AuthState } from '@/types'
+import type { AuthState } from '@/types'
 
 export const currentState = (state: AuthState) => {
   return state.status

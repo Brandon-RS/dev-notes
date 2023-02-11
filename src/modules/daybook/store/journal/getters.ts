@@ -1,4 +1,4 @@
-import { EntryType, JournalState } from '@/types'
+import type { EntryType, JournalState } from '@/types'
 
 export const getEntriesByTerm = ({ entries }: { entries: EntryType[] }) => (text: string) => {
   if (text.length === 0) {

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { EntryType } from '@/types'
+import type { EntryType } from '@/types'
 import { computed } from 'vue'
 import { getEntryDate } from '@/helpers/dates'
 

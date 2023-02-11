@@ -4,7 +4,7 @@ import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import Swal from 'sweetalert2'
 import { getEntryDate } from '@/helpers/dates'
-import { EntryType, State } from '@/types'
+import type { EntryType, State } from '@/types'
 import { blankEntry } from '@/helpers/generics'
 import { uploadImage } from '../helpers/uploadImage'
 

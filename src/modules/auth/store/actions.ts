@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Commit } from 'vuex'
-import { UserType } from '../auth'
+import type { Commit } from 'vuex'
+import type { UserType } from '../auth'
 import authApi from '@/api/authApi'
 
 interface commitType {

@@ -1,4 +1,4 @@
-import { JournalState, EntryType } from '@/types'
+import type { JournalState, EntryType } from '@/types'
 
 export const setEntries = (state: JournalState, entries: EntryType[]) => {
   state.entries = [...entries]

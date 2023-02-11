@@ -1,4 +1,4 @@
-import { UserType } from './modules/auth/auth'
+import type { UserType } from './modules/auth/auth'
 export interface EntryType {
   id: string,
   date: string | number,

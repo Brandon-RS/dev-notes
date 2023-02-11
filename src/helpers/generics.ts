@@ -1,4 +1,4 @@
-import { EntryType } from '@/types'
+import type { EntryType } from '@/types'
 
 export const blankEntry: EntryType = {
   id: '',

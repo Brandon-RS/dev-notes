@@ -1,5 +1,5 @@
 import store from '@/store'
-import { NavigationGuardNext, RouteLocationNormalized } from 'vue-router'
+import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router'
 
 type rln = RouteLocationNormalized
 type ngn = NavigationGuardNext
